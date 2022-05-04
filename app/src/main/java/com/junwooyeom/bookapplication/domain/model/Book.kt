@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication
+package com.junwooyeom.bookapplication.domain.model
 
 data class Book(
     val kind: String,

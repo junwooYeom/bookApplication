@@ -1,5 +1,8 @@
-package com.junwooyeom.bookapplication
+package com.junwooyeom.bookapplication.data
 
+import com.junwooyeom.bookapplication.data.repository.BookRepositoryImpl
+import com.junwooyeom.bookapplication.domain.repository.BookRepository
+import com.junwooyeom.bookapplication.network.BookInfraService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

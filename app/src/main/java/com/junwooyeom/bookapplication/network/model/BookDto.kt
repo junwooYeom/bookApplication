@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication
+package com.junwooyeom.bookapplication.network.model
 
 import com.google.gson.annotations.SerializedName
 

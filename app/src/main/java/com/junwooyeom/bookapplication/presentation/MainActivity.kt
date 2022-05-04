@@ -1,7 +1,8 @@
-package com.junwooyeom.bookapplication
+package com.junwooyeom.bookapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.junwooyeom.bookapplication.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
