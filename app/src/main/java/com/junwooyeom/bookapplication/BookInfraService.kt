@@ -2,5 +2,5 @@ package com.junwooyeom.bookapplication
 
 interface BookInfraService {
 
-    suspend fun getBookList()
+    suspend fun getBookList(): BookResponse
 }
