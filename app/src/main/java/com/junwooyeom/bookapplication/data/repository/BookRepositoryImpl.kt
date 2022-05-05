@@ -14,7 +14,7 @@ import javax.inject.Inject
 class BookRepositoryImpl @Inject constructor(
     private val bookInfraService: BookInfraService
 ) : BookRepository {
-    override suspend fun getBooks(query: String): Flow<PagingData<Book>> {
+    override fun getBooks(query: String): Flow<PagingData<Book>> {
         return Pager(
             PagingConfig(pageSize = 10)
         ) {
