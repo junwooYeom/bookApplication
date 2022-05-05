@@ -14,5 +14,9 @@ data class VolumeDto(
     @SerializedName("publishedDate")
     val published: String,
     @SerializedName("description")
-    val description: String
+    val description: String,
+    @SerializedName("categories")
+    val categories: List<String>,
+    @SerializedName("imageLinks")
+    val links: ImageDto,
 )

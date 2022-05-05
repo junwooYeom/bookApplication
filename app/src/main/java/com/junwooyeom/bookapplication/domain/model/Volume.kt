@@ -6,5 +6,7 @@ data class Volume(
     val authors: List<String>,
     val publisher: String,
     val published: String,
-    val description: String
+    val description: String,
+    val categories: List<String>,
+    val links: Image,
 )

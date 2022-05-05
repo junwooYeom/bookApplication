@@ -1,6 +1,8 @@
 package com.junwooyeom.bookapplication.data.mapper
 
+import com.junwooyeom.bookapplication.domain.model.Image
 import com.junwooyeom.bookapplication.domain.model.Volume
+import com.junwooyeom.bookapplication.network.model.ImageDto
 import com.junwooyeom.bookapplication.network.model.VolumeDto
 
 fun VolumeDto.toVolume(): Volume =
@@ -10,5 +12,13 @@ fun VolumeDto.toVolume(): Volume =
         authors,
         publisher,
         published,
-        description
+        description,
+        categories,
+        links.toImages()
+    )
+
+fun ImageDto.toImages(): Image =
+    Image(
+        smallThumbnail,
+        thumbnail
     )
