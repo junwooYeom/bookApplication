@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,14 +14,19 @@ import com.junwooyeom.bookapplication.R
 import com.junwooyeom.bookapplication.databinding.FragmentSearchBinding
 import com.junwooyeom.bookapplication.domain.model.Book
 import com.junwooyeom.bookapplication.presentation.adapter.BooksAdapter
+import com.junwooyeom.bookapplication.presentation.viewmodel.BookViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
-    private val adapter by lazy {
+    private val viewModel by viewModels<BookViewModel>()
+
+    private val bookAdapter by lazy {
         BooksAdapter(this::onBookClicked)
     }
 
@@ -37,10 +44,18 @@ class SearchFragment : Fragment() {
         initRecyclerView()
     }
 
+    private fun searchViewModel(query: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.getBookList(query).collect {
+                bookAdapter.submitData(it)
+            }
+        }
+    }
+
     private fun initRecyclerView() {
         binding.rvBooks.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = adapter
+            adapter = bookAdapter
             addItemDecoration(
                 DividerItemDecoration(
                     requireContext(), DividerItemDecoration.VERTICAL
