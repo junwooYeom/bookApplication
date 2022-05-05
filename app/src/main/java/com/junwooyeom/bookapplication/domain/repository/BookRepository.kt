@@ -1,8 +1,10 @@
 package com.junwooyeom.bookapplication.domain.repository
 
+import androidx.paging.PagingData
 import com.junwooyeom.bookapplication.domain.model.Book
+import kotlinx.coroutines.flow.Flow
 
 interface BookRepository {
 
-    suspend fun getBooks(): List<Book>
+    suspend fun getBooks(query: String): Flow<PagingData<Book>>
 }
