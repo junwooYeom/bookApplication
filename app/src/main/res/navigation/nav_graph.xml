@@ -19,7 +19,11 @@
         android:id="@+id/detailFragment"
         android:name="com.junwooyeom.bookapplication.presentation.DetailFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail"/>
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="book"
+            app:argType="com.junwooyeom.bookapplication.domain.model.Book"/>
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.junwooyeom.bookapplication.presentation.LoginFragment"
