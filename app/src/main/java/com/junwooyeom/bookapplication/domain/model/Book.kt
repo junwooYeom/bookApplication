@@ -5,8 +5,5 @@ data class Book(
     val id: String,
     val eTag: String,
     val selfLink: String,
-    val volumeInfo: String,
-    val authors: List<String>,
-    val publisher: String,
-    val published: String,
+    val volumeInfo: Volume
 )

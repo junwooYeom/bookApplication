@@ -12,11 +12,5 @@ data class BookDto(
     @SerializedName("selfLink")
     val selfLink: String,
     @SerializedName("volumeInfo")
-    val volumeInfo: String,
-    @SerializedName("authors")
-    val authors: List<String>,
-    @SerializedName("publisher")
-    val publisher: String,
-    @SerializedName("publishedDate")
-    val published: String,
+    val volumeInfo: VolumeDto,
 )

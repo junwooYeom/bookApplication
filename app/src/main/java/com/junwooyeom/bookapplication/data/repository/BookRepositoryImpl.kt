@@ -3,7 +3,7 @@ package com.junwooyeom.bookapplication.data.repository
 import com.junwooyeom.bookapplication.domain.model.Book
 import com.junwooyeom.bookapplication.domain.repository.BookRepository
 import com.junwooyeom.bookapplication.network.BookInfraService
-import com.junwooyeom.bookapplication.toBook
+import com.junwooyeom.bookapplication.data.mapper.toBook
 import javax.inject.Inject
 
 class BookRepositoryImpl @Inject constructor(
