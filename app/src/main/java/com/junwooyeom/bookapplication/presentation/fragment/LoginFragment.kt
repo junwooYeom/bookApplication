@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication.presentation
+package com.junwooyeom.bookapplication.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

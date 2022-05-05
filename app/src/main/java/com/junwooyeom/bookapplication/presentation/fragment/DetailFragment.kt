@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication.presentation
+package com.junwooyeom.bookapplication.presentation.fragment
 
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint

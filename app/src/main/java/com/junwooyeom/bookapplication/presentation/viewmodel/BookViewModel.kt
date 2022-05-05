@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication.presentation
+package com.junwooyeom.bookapplication.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.junwooyeom.bookapplication.domain.usecase.GetBooksUseCase

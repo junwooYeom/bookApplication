@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication.presentation
+package com.junwooyeom.bookapplication.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.junwooyeom.bookapplication.R
 import com.junwooyeom.bookapplication.databinding.FragmentSearchBinding
 import com.junwooyeom.bookapplication.domain.model.Book
+import com.junwooyeom.bookapplication.presentation.adapter.BooksAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

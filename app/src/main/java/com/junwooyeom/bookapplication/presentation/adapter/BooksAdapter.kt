@@ -1,4 +1,4 @@
-package com.junwooyeom.bookapplication.presentation
+package com.junwooyeom.bookapplication.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
