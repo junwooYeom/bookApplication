@@ -26,6 +26,7 @@ ext {
     coroutines = "1.6.0"
 
     navigation = "2.4.2"
+    glide = "4.13.0"
 
     oauth = "20.2.0"
 }
