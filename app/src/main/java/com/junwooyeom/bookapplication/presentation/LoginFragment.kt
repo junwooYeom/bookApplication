@@ -27,7 +27,9 @@ class LoginFragment : Fragment() {
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-            handleSignInIntent(task)
+            if (task.isSuccessful) {
+                moveToSearchFragment()
+            }
         }
 
     override fun onCreateView(
@@ -41,23 +43,18 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
 
-        val gso = GoogleSignInOptions.Builder().build()
+        val gso = GoogleSignInOptions.Builder()
+            .requestIdToken("59027836512-aopu9m8cgim8okqm7iaal32r9ifu8gma.apps.googleusercontent.com")
+            .requestEmail().build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
-        binding.btnLogin.setOnClickListener {
-            resultLauncher.launch(googleSignInClient.signInIntent)
-        }
-    }
-
-    private fun handleSignInIntent(task: Task<GoogleSignInAccount>) {
-        try {
-            if (task.isSuccessful) {
-                moveToSearchFragment()
+        if (GoogleSignIn.getLastSignedInAccount(requireContext()) != null) {
+            moveToSearchFragment()
+        } else {
+            binding.btnLogin.setOnClickListener {
+                val client = googleSignInClient.signInIntent
+                resultLauncher.launch(client)
             }
-        } catch (e: Exception) {
-            Toast.makeText(requireContext(), "googleOauthLogin 에 실패하였습니다", Toast.LENGTH_SHORT)
-                .show()
-            e.printStackTrace()
         }
     }
 
