@@ -1,8 +1,13 @@
 package com.junwooyeom.bookapplication.network
 
 import com.junwooyeom.bookapplication.network.model.BookResponse
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface BookInfraService {
 
-    suspend fun getBookList(): BookResponse
+    @GET("/")
+    suspend fun getBookList(
+        @Query("q") query: String,
+    ): BookResponse
 }
