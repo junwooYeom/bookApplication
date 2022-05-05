@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,8 +17,8 @@ import com.junwooyeom.bookapplication.domain.model.Book
 import com.junwooyeom.bookapplication.presentation.adapter.BooksAdapter
 import com.junwooyeom.bookapplication.presentation.viewmodel.BookViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.lang.IllegalArgumentException
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -42,12 +43,24 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.bind(view)
 
         initRecyclerView()
+        initListener()
     }
 
-    private fun searchViewModel(query: String) {
+    private fun searchBooks(query: String) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.getBookList(query).collect {
                 bookAdapter.submitData(it)
+            }
+        }
+    }
+
+    private fun initListener() {
+        val editText = binding.etBooks.editText ?: throw IllegalArgumentException("EditText Must be initialized.")
+        binding.btnSearch.setOnClickListener {
+            if (editText.text.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), "검색어를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            } else {
+                searchBooks(editText.text.toString())
             }
         }
     }
