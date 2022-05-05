@@ -26,6 +26,8 @@ ext {
     coroutines = "1.6.0"
 
     navigation = "2.4.2"
+
+    oauth = "20.2.0"
 }
 
 task clean(type: Delete) {

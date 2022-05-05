@@ -57,5 +57,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
+    implementation "com.google.android.gms:play-services-auth:$oauth"
+
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
 }
