@@ -1,5 +1,9 @@
 package com.junwooyeom.bookapplication.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Volume(
     val title: String,
     val subTitle: String,
@@ -9,4 +13,4 @@ data class Volume(
     val description: String,
     val categories: List<String>,
     val links: Image,
-)
+): Parcelable
