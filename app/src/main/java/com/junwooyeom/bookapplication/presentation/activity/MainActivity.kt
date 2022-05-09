@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration.Builder(setOf(
             R.id.searchFragment,
-            R.id.loginFragment
         )).build()
 
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
