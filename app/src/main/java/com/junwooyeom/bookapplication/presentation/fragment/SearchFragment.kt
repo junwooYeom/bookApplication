@@ -69,11 +69,6 @@ class SearchFragment : Fragment() {
         binding.rvBooks.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = bookAdapter
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(), DividerItemDecoration.VERTICAL
-                )
-            )
         }
     }
 
