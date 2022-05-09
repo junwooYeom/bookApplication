@@ -8,15 +8,21 @@ object BindingAdapter {
 
     @BindingAdapter("imageUrl")
     @JvmStatic
-    fun load(imageView: ImageView, url: String) {
-        GlideApp.with(imageView.context)
-            .load(url)
-            .into(imageView)
+    fun load(imageView: ImageView, url: String?) {
+        if (url.isNullOrEmpty().not()) {
+            GlideApp.with(imageView.context)
+                .load(url)
+                .into(imageView)
+        }
     }
 
     @BindingAdapter("authorList")
     @JvmStatic
-    fun getAuthorList(textView: TextView, list: List<String>) {
-        textView.text = list.joinToString(", ")
+    fun getAuthorList(textView: TextView, list: List<String>?) {
+        if (list.isNullOrEmpty()) {
+            textView.text = ""
+        } else {
+            textView.text = list.joinToString(", ")
+        }
     }
 }

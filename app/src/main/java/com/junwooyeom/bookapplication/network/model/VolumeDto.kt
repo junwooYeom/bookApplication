@@ -6,17 +6,17 @@ data class VolumeDto(
     @SerializedName("title")
     val title: String,
     @SerializedName("subTitle")
-    val subTitle: String,
+    val subTitle: String?,
     @SerializedName("authors")
-    val authors: List<String>,
+    val authors: List<String>?,
     @SerializedName("publisher")
-    val publisher: String,
+    val publisher: String?,
     @SerializedName("publishedDate")
-    val published: String,
+    val published: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("categories")
-    val categories: List<String>,
+    val categories: List<String>?,
     @SerializedName("imageLinks")
-    val links: ImageDto,
+    val links: ImageDto?,
 )

@@ -14,7 +14,7 @@ fun VolumeDto.toVolume(): Volume =
         published,
         description,
         categories,
-        links.toImages()
+        links?.toImages()
     )
 
 fun ImageDto.toImages(): Image =

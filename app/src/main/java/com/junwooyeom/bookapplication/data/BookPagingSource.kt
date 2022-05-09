@@ -5,6 +5,8 @@ import androidx.paging.PagingState
 import com.junwooyeom.bookapplication.data.mapper.toBook
 import com.junwooyeom.bookapplication.domain.model.Book
 import com.junwooyeom.bookapplication.network.BookInfraService
+import java.io.IOException
+import java.lang.NullPointerException
 
 class BookPagingSource(
     private val infraService: BookInfraService,
@@ -26,7 +28,10 @@ class BookPagingSource(
                 prevKey = null,
                 nextKey = if (response.items.isNullOrEmpty()) null else nextPageNumber + 10
             )
-        } catch (e: Exception) {
+        } catch (e: IOException) {
+            LoadResult.Error(e)
+        } catch (e: NullPointerException) {
+            e.printStackTrace()
             LoadResult.Error(e)
         }
     }

@@ -12,5 +12,5 @@ data class Volume(
     val published: String?,
     val description: String?,
     val categories: List<String>?,
-    val links: Image,
+    val links: Image?,
 ): Parcelable
