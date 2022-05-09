@@ -15,7 +15,7 @@ object BindingAdapter {
                 .load(url)
                 .into(imageView)
         } else {
-            imageView.setBackgroundResource(R.drawable.ic_image_not_supported)
+            imageView.setImageResource(R.drawable.ic_image_not_supported)
         }
     }
 

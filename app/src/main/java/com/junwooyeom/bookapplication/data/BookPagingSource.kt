@@ -22,7 +22,7 @@ class BookPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Book> {
         return try {
             val nextPageNumber = params.key ?: 1
-            val response = infraService.getBookList(query)
+            val response = infraService.getBookList(query, nextPageNumber)
             LoadResult.Page(
                 data = response.items.map { it.toBook() },
                 prevKey = null,

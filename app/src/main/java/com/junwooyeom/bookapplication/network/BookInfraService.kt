@@ -9,5 +9,6 @@ interface BookInfraService {
     @GET("volumes")
     suspend fun getBookList(
         @Query("q") query: String,
+        @Query("startIndex") startIndex: Int,
     ): BookResponse
 }
